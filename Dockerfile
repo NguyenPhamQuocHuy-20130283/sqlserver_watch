@@ -11,7 +11,7 @@ WORKDIR /var/opt/mssql
 # Copy script & backup vào container
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
 COPY init-db.sql /usr/src/app/init-db.sql
-COPY backup.bak /usr/src/app/DongHo3.bak
+COPY DongHo3.bak /usr/src/app/DongHo3.bak
 
 RUN chmod +x /usr/src/app/entrypoint.sh
 
