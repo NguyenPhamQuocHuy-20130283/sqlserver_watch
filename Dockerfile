@@ -9,10 +9,17 @@ ENV MSSQL_PID=Express
 WORKDIR /var/opt/mssql
 
 # Copy script & backup vào container
+USER root
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
-RUN chmod 755 /usr/src/app/entrypoint.sh
+RUN chmod 755 /usr/src/app/entrypoint.sh \
+    && chown mssql:mssql /usr/src/app/entrypoint.sh
+
 COPY init-db.sql /usr/src/app/init-db.sql
 COPY DongHo3.bak /usr/src/app/DongHo3.bak
+
+# Quay lại user mặc định
+USER mssql
+
 
 
 # Expose SQL Server port
