@@ -13,7 +13,6 @@ COPY entrypoint.sh /usr/src/app/entrypoint.sh
 COPY init-db.sql /usr/src/app/init-db.sql
 COPY DongHo3.bak /usr/src/app/DongHo3.bak
 
-RUN chmod +x /usr/src/app/entrypoint.sh
 
 # Expose SQL Server port
 EXPOSE 1433
